@@ -1,2 +1,10 @@
-# HAND-CRICKET-PRO-GAME-
-Hand Cricket Pro is a browser-based hand cricket game built with pure HTML, CSS and JavaScript. Player bats first and sets a target, then the computer chases it automatically. If both pick the same number — you're OUT! Built with a Brutalist design using muted green and black. First JavaScript project focusing on game logic and DOM manipulation.
+How to Play Hand Cricket Pro
+Click the Start button to begin the game
+You bat first — pick a number from 1 to 6 by clicking the buttons
+The computer also secretly picks a number at the same time
+If your number and computer number are different — you score that many runs
+If both numbers are the same — you are OUT! 🏏
+After you get out the computer bats automatically and tries to beat your score
+If the computer gets OUT before reaching your score — You Win! 🎉
+If the computer score crosses your score — Computer Wins! 😞
+refresh the page for new game 
