@@ -1,0 +1,273 @@
+/* ==========================================================================
+   1. RCB THEME COLOR TOKENS & SITE REBOOT
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Official RCB Inspired Color Architecture */
+  --rcb-dark-matte: #111111;   /* Main background screen depth */
+  --rcb-red: #D71920;          /* Signature carmine red */
+  --rcb-gold: #E6A100;         /* Premium franchise gold accent */
+  --rcb-gold-glow: #FFD700;    /* High-visibility active feedback gold */
+  --rcb-white: #FFFFFF;
+  --rcb-card-bg: #1A1A1A;      /* Elevated stadium container layer */
+  
+  /* Modern Neo-Brutalist Layout Borders */
+  --brutal-border: 4px solid var(--rcb-dark-matte);
+  --brutal-shadow: 6px 6px 0px 0px var(--rcb-gold);
+  --brutal-shadow-small: 4px 4px 0px 0px var(--rcb-dark-matte);
+}
+
+body {
+  font-family: 'Montserrat', 'Arial Black', system-ui, sans-serif;
+  background-color: var(--rcb-dark-matte);
+  /* Subdued stadium mesh background grid texture */
+  background-image: radial-gradient(rgba(215, 25, 32, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+  color: var(--rcb-white);
+  
+  /* Lock Viewport layout rules */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;      /* Stacks header cleanly on top of games screens */
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. FIXED HEADER (VIRAT KOHLI TEXT-MASK BANNER)
+   ========================================================================== */
+.game-header {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* App Name Text (Masked silhouette graphic container) */
+.game-header p:first-of-type {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  padding: 10px 0;
+  
+  /* Solid Fallback Color: Guarantees text is bright red if connection drops */
+  color: var(--rcb-red); 
+  
+  /* Direct Ultra-HD Action Image Link of Virat Kohli in RCB Jersey */
+  background-image: url('https://pin.it/W2V8GXM9'); 
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  
+  /* Strict Text Clipping Rules across Safari, Chrome, Edge, and Firefox */
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  
+  /* High contrast dark shadow placed underneath the mask to make the image letters pop */
+  filter: drop-shadow(3px 3px 0px var(--rcb-dark-matte));
+}
+
+/* Tagline Text */
+.game-header p:nth-of-type(2) {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--rcb-gold);
+  letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   3. STADIUM INTERACTIVE PANELS (Start, Game, Result Screens)
+   ========================================================================== */
+#start-screen, 
+#game-screen, 
+#result-screen {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--rcb-card-bg);
+  border: 4px solid var(--rcb-red);
+  box-shadow: var(--brutal-shadow);
+  padding: 28px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   4. SCOREBOARD & GAME LOGIC HUD DISPLAY ELEMENTS
+   ========================================================================== */
+/* Horizontal split metrics container fields */
+#play-score, 
+#computer-score {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 47%;
+  margin: 0 1% 15px 1%;
+  padding: 10px;
+  border: 3px solid var(--rcb-white);
+}
+
+#play-score { 
+  background-color: var(--rcb-red); 
+  color: var(--rcb-white);
+}
+
+#computer-score { 
+  background-color: var(--rcb-dark-matte); 
+  color: var(--rcb-gold);
+  border-color: var(--rcb-gold);
+}
+
+/* Current target/action prompt text */
+#msg {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--rcb-white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 15px 0;
+  background: linear-gradient(90deg, transparent, rgba(215, 25, 32, 0.4), transparent);
+  padding: 6px 0;
+}
+
+/* Post-move live message action string log */
+#message {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--rcb-gold-glow);
+  text-transform: uppercase;
+  margin: 15px 0;
+  min-height: 24px;
+}
+
+/* Dynamic current innings visual marker badge */
+#current-inning {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background-color: var(--rcb-red);
+  color: var(--rcb-white);
+  padding: 8px;
+  margin-top: 10px;
+  border: 2px solid var(--rcb-dark-matte);
+}
+
+/* Secondary lower scoreboard metrics variables cleanups */
+#player-score, 
+#game-screen #computer-score:nth-of-type(2) {
+  font-size: 1.3rem;
+  color: #888888;
+  margin-top: 5px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE COMPACT NUMERICAL GRID INPUTS (.num-btn)
+   ========================================================================== */
+.num-btn {
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--rcb-white);
+  background-color: #252525;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-small);
+  cursor: pointer;
+  padding: 12px 0;
+  transition: all 0.08s ease;
+  
+  /* Horizontal Layout Lock: Generates 3-column system to prevent vertical scrolling */
+  display: inline-block;
+  width: calc(33.33% - 10px);
+  margin: 5px;
+}
+
+/* Boundary Highlight color override overrides for runs 4 and 6 */
+#\4, #\6 {
+  background-color: var(--rcb-gold);
+  color: var(--rcb-dark-matte);
+}
+
+.num-btn:hover {
+  border-color: var(--rcb-red);
+  transform: translateY(-2px);
+}
+
+.num-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--rcb-dark-matte);
+}
+
+/* ==========================================================================
+   6. PRIMARY STATE NAV BUTTONS (Start & Restart Actions)
+   ========================================================================== */
+#start-button,
+#restart-button {
+  width: 100%;
+  padding: 16px;
+  font-size: 2.2rem;
+  font-family: inherit;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: var(--brutal-border);
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+#start-button {
+  background-color: var(--rcb-red);
+  color: var(--rcb-white);
+  box-shadow: 4px 4px 0px var(--rcb-gold);
+}
+
+#restart-button {
+  background-color: var(--rcb-white);
+  color: var(--rcb-dark-matte);
+  box-shadow: var(--brutal-shadow);
+}
+
+#start-button:active,
+#restart-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px var(--rcb-dark-matte);
+}
+
+/* ==========================================================================
+   7. FINAL SCREEN SCORE NARRATIVE
+   ========================================================================== */
+#final-message {
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--rcb-gold);
+  margin-bottom: 30px;
+}
+
+/* Compact mobile layouts compression adjustments */
+@media (max-width: 360px) {
+  .game-header p:first-of-type { font-size: 3.2rem; }
+  .num-btn { font-size: 2.4rem; padding: 8px 0; }
+  #play-score, #computer-score { font-size: 1.5rem; }
+}
+
+
+
+#game-screen{
+    display:none;
+
+}
+#restart-button{
+    display:none;
+}

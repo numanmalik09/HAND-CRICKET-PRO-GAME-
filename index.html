@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HAND CRICKET PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+     <!-- 1. MOVED HERE: Now fixed at the top of all screens -->
+    <div class="game-header">
+        <p>HAND CRICKET PRO</p>
+        <p>PICK SMART, SCORE BIG</p>
+    </div>
+
+    <!-- start screen -->
+    <div id="start-screen">
+       
+        <!-- start button -->
+        <button id="start-button">Start</button>
+    </div>
+    <!-- game screen -->
+    <div id="game-screen">
+        <!-- score -->
+        <p id="play-score"></p>
+        <p id="computer-score"></p>
+        <p ID="msg">CHOOSE A  NUMBER  </p>
+        <button  class="num-btn"id="1">1</button>
+        <button  class="num-btn"id="2">2</button>
+        <button  class="num-btn"id="3">3</button>
+        <button  class="num-btn"id="4">4</button>
+        <button  class="num-btn"id="5">5</button>
+        <button  class="num-btn"id="6">6</button>
+        <p id="message"></p> 
+        <p id="current-inning"></p>
+        <p id="player-score"></p>
+        <p id="computer-score"></p>
+    </div>
+
+    <!-- result screen -->
+    <div id="result-screen">
+        <p id="final-message"></p>
+        <button id="restart-button">Restart</button>
+    </div>
+</body>
+
+<script src="brain.js"></script>
+
+</html>
